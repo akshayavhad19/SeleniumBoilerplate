@@ -1,0 +1,64 @@
+package com.qa.videos;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class GPPVideos {
+	static WebDriver driver;
+	public static void main(String[] args) throws InterruptedException {
+		// Initialize WebDriver
+		driver = new ChromeDriver();
+
+		By playIcon= By.xpath("//button[@class='vjs-big-play-button']");
+
+
+		String username="develop";
+		String password="bi!marketing";
+		String loginUrl = "https://"+username+":"+password+"@nginx-gpphiroba-jp-develop.bi3.bi-oneweb.com";
+		// "https://"+develop+":"+bi!marketing+"nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/"
+
+		driver.get(loginUrl); // Open video URL
+		Thread.sleep(3000);
+		driver.manage().window().maximize();
+
+
+		String[] videoLinks = {
+				"https://nginx-gpphiroba-jp-develop.bi3.bi-oneweb.com/under-treatment/index.html/announcement.html/movie/index.html",
+				"https://nginx-gpphiroba-jp-develop.bi3.bi-oneweb.com/movie/index.html/patient/001.html",
+				"https://nginx-gpphiroba-jp-develop.bi3.bi-oneweb.com/movie/index.html/patient/002.html",
+				"https://nginx-gpphiroba-jp-develop.bi3.bi-oneweb.com/movie/index.html/patient/003.html",
+				"https://nginx-gpphiroba-jp-develop.bi3.bi-oneweb.com/movie/index.html/patient/005.html"
+				};
+
+		//for (String url : videoLinks) {
+		for (int i=0;i<videoLinks.length;i++) {
+			driver.navigate().to(videoLinks[i]);
+			int temp=i+1;
+			try {
+
+				Thread.sleep(5000);
+				if(driver.findElement(By.tagName("video-js")).isDisplayed()) {
+					doClick(playIcon);
+					Thread.sleep(3000);
+					System.out.println(temp+". Video is playing:      " + videoLinks[i]);
+				}
+			}
+			catch (Exception e) {
+				System.out.println(temp +". Video is not playing:  " + videoLinks[i]);			}
+		}
+		driver.quit();
+	}
+
+	public static void doSendKeys(By locator, String value) {
+		getElement(locator).sendKeys(value);
+	}
+
+	public static void doClick(By locator) {
+		getElement(locator).click();
+	}
+	public static WebElement getElement (By locator) {
+		return driver.findElement(locator);
+	}
+}

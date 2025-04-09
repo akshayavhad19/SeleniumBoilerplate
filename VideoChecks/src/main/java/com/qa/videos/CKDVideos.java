@@ -1,0 +1,92 @@
+package com.qa.videos;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class CKDVideos {
+	static WebDriver driver;
+	public static void main(String[] args) throws InterruptedException {
+		// Initialize WebDriver
+		driver = new ChromeDriver();
+
+		By email_Id=By.id("edit-name--2");
+		By pass=By.id("edit-pass--2");
+		By checkbox=By.id("edit-terms-of-use--2");
+		By submitBtn=By.id("edit-submit--2");
+		By playIcon= By.xpath("//button[@class='vjs-big-play-button']");
+
+
+		String username="develop";
+		String password="bi!marketing";
+		String loginUrl = "https://"+username+":"+password+"@nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/";
+		// "https://"+develop+":"+bi!marketing+"nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/"
+
+		driver.get(loginUrl); // Open video URL
+		Thread.sleep(3000);
+		driver.manage().window().maximize();
+
+		doSendKeys(email_Id, "kahob83627@ndiety.com");
+		doSendKeys(pass, "Testuser@123");
+		doClick(checkbox);
+		doClick(submitBtn);
+
+		Thread.sleep(4000);
+
+		String[] videoLinks = {
+				"https://nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/slidelibrary/KEE_video_CARMELINA_J",
+				"https://nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/slidelibrary/TGF_and_SGLT2i_Part2",
+				"https://nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/slidelibrary/lina_asian_subgroup",
+				"https://nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/slidelibrary/Win_ratio_Animation",
+				"https://nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/slidelibrary/TGF_and_SGLT2i",
+				"https://nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/slidelibrary/lina_age_subgroup",
+				"https://nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/slidelibrary/EMPEROR-Preserved_Animation",
+				"https://nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/slidelibrary/Mechanism_of_action_of_SGLT2i",
+				"https://nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/slidelibrary/EMPEROR-Preserved_Expert_opinion",
+				"https://nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/slidelibrary/Cardio-renal_axis_in_diabetes",
+				"https://nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/slidelibrary/LVRR",
+				"https://nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/slidelibrary/EMPEROR-Reduced_Animation",
+				"https://nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/slidelibrary/HFpEF_diagnosis_digest",
+				"https://nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/slidelibrary/EMPEROR-Reduced_Expert_opinion",
+				"https://nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/slidelibrary/HFpEF_diagnosis",
+				"https://nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/slidelibrary/KEE_video_EMPA-REG_OUTCOME",
+				"https://nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/slidelibrary/TGF_and_SGLT2i_Part1",
+				"https://nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/slidelibrary/EMPA-REG_OUTCOME_CV_and_renal_outcome",
+				"https://nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/slidelibrary/mpagliflozin_HTA_digest",
+				"https://nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/slidelibrary/KEE_video_CAROLINA_J",
+				"https://nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/slidelibrary/Empagliflozin_HTA_original",
+				"https://nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/slidelibrary/EMPA-REG_OUTCOME_renal_outcome_in_Asian",
+				"https://nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/slidelibrary/TGF_and_SGLT2i_Part3",
+		};
+
+		//for (String url : videoLinks) {
+		for (int i=0;i<videoLinks.length;i++) {
+			driver.navigate().to(videoLinks[i]);
+			int temp=i+1;
+			try {
+
+				Thread.sleep(5000);
+				if(driver.findElement(By.tagName("video-js")).isDisplayed()) {
+					doClick(playIcon);
+					Thread.sleep(3000);
+					System.out.println(temp+". Video is playing:      " + videoLinks[i]);
+				}
+			}
+			catch (Exception e) {
+				System.out.println(temp +". Video is not playing:  " + videoLinks[i]);			}
+		}
+		driver.quit();
+	}
+
+	public static void doSendKeys(By locator, String value) {
+		getElement(locator).sendKeys(value);
+	}
+
+	public static void doClick(By locator) {
+		getElement(locator).click();
+	}
+	public static WebElement getElement (By locator) {
+		return driver.findElement(locator);
+	}
+}

@@ -1,0 +1,42 @@
+package selenium.java;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class AddToCart {
+	public static void main(String[] args) {
+		WebDriver driver= new ChromeDriver();
+		 driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
+		 
+		 String [] products= {"Cauliflower","Potato"};
+		 List <WebElement> totalProducts= driver.findElements(By.xpath("//h4[@class='product-name']"));
+		 System.out.println(totalProducts.size());
+		 int j=0;
+		 for (int i=0; i<totalProducts.size();i++) {
+			 String []listPro= totalProducts.get(i).getText().split(" - ");
+			 String formattedName= listPro[0].trim();
+			 System.out.println(formattedName);
+			 List veggiesList = Arrays.asList(products);
+			 int temp=i+1;
+			 if (veggiesList.contains(formattedName)) {
+				// driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div/div['"+temp+"']/div[3]/button")).click();
+				// System.out.println(formattedName);
+			// }
+					j++;
+						//click to add to cart
+					driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div/div[1]/div[3]")).click();
+						if(j==2)
+						{
+							break;
+						}
+					}
+		 }
+		 //(f"(//a[text()='View Profile'])[{i}]")
+		//*[@id="root"]/div/div[1]/div/div[i]/div[3]/button
+	}
+}

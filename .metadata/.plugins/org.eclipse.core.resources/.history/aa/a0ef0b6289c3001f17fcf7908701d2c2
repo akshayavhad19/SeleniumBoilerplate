@@ -1,0 +1,43 @@
+package SeleniumSessions;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ElementConcept {
+	
+	static WebDriver driver;
+	public static void main(String[] args) {
+		//Webelement
+		//Create webelement + Perform action on it (ex. click, sendKeys, getText....)
+
+		WebDriver driver= new ChromeDriver();
+		driver.get("https://naveenautomationlabs.com/opencart/");
+		// 1st approach
+		//driver.findElement(By.id("input-email"));
+		//2nd approach
+		// By locator
+		//By eid= By.id("input-email");
+		//By pwd= By.id("password");
+		//WebElement emailId= driver.findElement(By.id("input-email"));
+		//emailId.sendKeys("email@gmail.com");
+		// By locator + Generic Method for element and action
+
+		//3rd approach
+		By eid= By.id("input-email");
+		By pwd= By.id("password");
+		doSendKeys(eid, "email@gmail.com");
+		doSendKeys(pwd, "Pasword@123");
+	}
+	public static void doSendKeys(By locator, String value) {
+		 getElement(locator).sendKeys(value);
+	}
+	public static WebElement getElement (By locator) {
+		return driver.findElement(locator);
+	}
+
+
+
+
+}

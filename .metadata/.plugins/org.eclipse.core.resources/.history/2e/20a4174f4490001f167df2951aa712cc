@@ -1,0 +1,18 @@
+package basics;
+
+public class User {
+
+	String name;
+	int age;
+	String city;
+	
+	public static void main(String[] args) {
+		
+		User u1= new User();
+		u1.name="Raju";
+		u1.age=20;
+		u1.city="Rahata";
+		System.out.println(u1);
+	}
+
+}

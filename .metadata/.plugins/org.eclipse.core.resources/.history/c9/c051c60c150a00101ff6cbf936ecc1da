@@ -1,0 +1,33 @@
+package com.qa.videos;
+
+import java.util.Arrays;
+
+public class Main {
+	public static void main(String[] args)
+	{
+		String str = "test string";
+		printDuplicates(str);
+	}
+
+	public static void printDuplicates(String str) {
+
+		int len=str.length();
+
+		char charArr[]=str.toCharArray();
+
+		Arrays.sort(charArr);
+		String sortedArr= new String(charArr);
+		int count=1;
+		for (int i=0;i<len-1;i++) {
+
+			while (sortedArr.charAt(i)==sortedArr.charAt(i++)) {
+				count++;
+				i++;
+			}
+			if(count>1) {
+				System.out.println(sortedArr.charAt(i)+" , count= "+count);
+			}
+		}
+	}
+
+}

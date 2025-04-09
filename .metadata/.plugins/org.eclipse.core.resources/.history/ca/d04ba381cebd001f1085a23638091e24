@@ -1,0 +1,19 @@
+package SeleniumSessions;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class BrowserUtils {
+	WebDriver driver;
+	
+	public void launchBrowser ( String browserName) {
+		System.out.println("Browser Name: "+browserName);
+		switch (browserName.toLowerCase().trim()){
+		case "chrome": {
+			driver = new ChromeDriver();
+		}
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + browserName.toLowerCase().trim());
+		}
+	}
+}

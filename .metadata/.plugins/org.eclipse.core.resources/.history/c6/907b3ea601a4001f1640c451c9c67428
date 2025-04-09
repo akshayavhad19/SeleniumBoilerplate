@@ -1,0 +1,12 @@
+package oopsconcept;
+
+public interface USA {
+		
+	public void islts();
+	public void gmat();
+	
+	
+	public static void ownCourse() {
+		System.out.println("owncourse");
+	}
+}

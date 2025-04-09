@@ -1,0 +1,7 @@
+package SeleniumSessions;
+
+public class DropdownHandlingWithoutSelect {
+	public static void main(String[] args) {
+		
+	}
+}

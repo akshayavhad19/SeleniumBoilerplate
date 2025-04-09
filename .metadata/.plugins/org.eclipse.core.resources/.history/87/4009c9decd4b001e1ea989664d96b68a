@@ -1,0 +1,67 @@
+package selenium.java;
+
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.time.Duration;
+import java.util.Properties;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class sauceDemoMain {
+
+	protected RemoteWebDriver rwb=null;
+	protected WebDriverWait wdw = null;
+	protected Properties pro = null;
+	protected WebDriver driver=null;
+
+	public void seleniumBase() {
+		pro = new Properties(); 
+		try {
+			pro.load(new FileInputStream("C:\\Users\\2155644\\OneDrive - Cognizant\\Advance Java\\eclipse-workspace_selenium\\Training-Selenium\\Repository\\sauceDemo.properties"));
+		} catch (FileNotFoundException e) {
+              e.printStackTrace();
+		} 
+		catch (IOException e) {
+
+			e.printStackTrace();
+		}
+	}
+	public void setUp() {
+		System.setProperty("webdriver.chrome.driver","C:\\Selenium\\chromedriver_win32\\chromedriver.exe");
+		driver= new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		driver.get(pro.getProperty("URL"));
+	}
+
+	public void login()  {
+		driver.findElement(By.xpath(pro.getProperty("UserName"))).sendKeys("standard_user");
+		driver.findElement(By.xpath(pro.getProperty("Password"))).sendKeys("secret_sauce");
+		driver.findElement(By.xpath(pro.getProperty("Submit"))).click();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block 
+			e.printStackTrace();
+		}
+	}
+	public void clickMenu() {
+		driver.findElement(By.xpath(pro.getProperty("Menu"))).click();
+		try {
+			Thread.sleep(30);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		driver.findElement(By.xpath(pro.getProperty("CrossBtn"))).click();
+
+	}
+
+}
+
+

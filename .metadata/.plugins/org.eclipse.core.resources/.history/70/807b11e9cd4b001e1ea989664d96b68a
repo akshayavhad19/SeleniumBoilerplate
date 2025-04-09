@@ -1,0 +1,20 @@
+package selenium.java;
+
+
+import org.testng.annotations.Test;
+
+public class sauceDemoPF {
+  sauceDemoMain obj=new sauceDemoMain();
+  @Test (priority = 1)
+   void start() {
+	  obj.seleniumBase();
+	  obj.setUp();
+	  obj.login();
+  }
+  @Test (priority = 2)
+  void menuBar() {
+	  obj.clickMenu();
+  }
+  
+}
+	

@@ -1,0 +1,64 @@
+package com.qa.videos;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class CKDVideos {
+	static WebDriver driver;
+	public static void main(String[] args) throws InterruptedException {
+		// Initialize WebDriver
+		driver = new ChromeDriver();
+
+		// List of video URLs to check
+		String username="develop";
+		String password="bi!marketing";
+		String loginUrl = "https://" + username + ":" + password + "@nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/";
+		// "https://"+develop+":"+bi!marketing+"nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/"
+		String[] videoLinks = {
+				"https://" + username + ":" + password + "@nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/slidelibrary/KEE_video_CARMELINA_J",
+				"https://" + username + ":" + password + "@nginx-pro-bi-com-jp-across-ckd-develop.bi3.bi-oneweb.com/jp/across/slidelibrary/TGF_and_SGLT2i_Part2"
+		};
+		By email_Id=By.id("edit-name--2");
+		By pass=By.id("edit-pass--2");
+		By checkbox=By.id("edit-terms-of-use--2");
+		By submitBtn=By.id("edit-submit--2");
+		By playIcon= By.xpath("//button[@class='vjs-big-play-button']");
+		for (String url : videoLinks) {
+			driver.get(loginUrl); // Open video URL
+			driver.manage().window().maximize();
+			
+			doSendKeys(email_Id, "kahob83627@ndiety.com");
+			doSendKeys(pass, "Testuser@1234");
+			doClick(checkbox);
+			doClick(submitBtn);
+			Thread.sleep(3000);
+			driver.navigate().to(url);
+			try {
+				Thread.sleep(6000);
+				if(driver.findElement(By.tagName("video-js")).isDisplayed()) {
+					doClick(playIcon);
+					System.out.println("Video is UP and playing: " + url);
+				}
+				else{
+					System.out.println("Video is DOWN or not playing: " + url);
+				}
+			}
+			catch (Exception e) {
+				System.out.println("Video not found or error on page: " + url);			}
+		}
+		driver.quit();
+	}
+	
+	public static void doSendKeys(By locator, String value) {
+		getElement(locator).sendKeys(value);
+	}
+
+	public static void doClick(By locator) {
+		getElement(locator).click();
+	}
+	public static WebElement getElement (By locator) {
+		return driver.findElement(locator);
+	}
+}

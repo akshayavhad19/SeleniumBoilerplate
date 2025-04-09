@@ -1,0 +1,13 @@
+package SeleniumSessions;
+
+import org.openqa.selenium.WebDriver;
+
+public class OpenCartLoginTest {
+	public static void main(String[] args) {
+		BrowserUtils brutils=new BrowserUtils();
+		WebDriver driver=brutils.launchBrowser("chrome");
+		brutils.launchURL("https://naveenautomationlabs.com/opencart/");
+	}
+
+
+}

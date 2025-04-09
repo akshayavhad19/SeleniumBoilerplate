@@ -1,0 +1,30 @@
+package SeleniumSessions;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class MultipleSelectionDropdownHandling {
+	static WebDriver driver;
+	public static void main(String[] args) {
+
+		driver=new ChromeDriver();
+		driver.get("https://html.com/attributes/select-multiple/");
+		
+		By multiDd=By.xpath("//select[@multiple]");
+		WebElement mutiOptions= driver.findElement(multiDd);
+		Select select = new Select(mutiOptions);
+		//Select select =new Select(driver.findElement(By.xpath("//select[@multiple]")));
+		
+		//check if its mutiple dropdown
+		if (select.isMultiple()) {
+			System.out.println("yes its multiselect dropdown");
+			select.selectByIndex(0);
+			select.selectByVisibleText("Chilean flamingo");
+			select.selectByVisibleText("Lesser flamingo");
+		}
+		select.deselectByIndex(1);
+	}
+}

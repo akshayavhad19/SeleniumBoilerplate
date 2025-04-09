@@ -1,0 +1,46 @@
+package SeleniumSessions;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class CustomCSSSelector {
+		
+		static WebDriver driver;
+		public static void main(String[] args) throws InterruptedException {
+			driver= new ChromeDriver();
+			driver.get("https://naveenautomationlabs.com/opencart/index.php?route=account/register");
+			
+			
+		//css- locator approach
+		//id - #id
+		//class - .class
+			
+		//#input-firstname - id
+			By.cssSelector("#input-firstname");
+			
+		//.form-control -class
+			
+		//#id.class --> #input-firstname.form-control
+		//.class#id --> .form-control#input-firstname
+			
+		//if we have multiple classes then
+		//.c1.c2.c3....cn
+		//.form-control.input-lg
+		
+		//#idValue.c1.c2.c3
+		//c1.c2.c3.#idvALUE
+			
+		// other attributes : name, type, any other
+			//  tagName[attr='value'] --> css
+			//  //tagName[@attr='value'] -->xpath
+			
+			//   input[name='email']
+			By.cssSelector("input[name='email']");
+			
+		//multiple attribute
+			// tagN[attr1='value'][attr2='value'] 
+			
+		//   tagN[attr1='value']#input-firstname
+	}
+}

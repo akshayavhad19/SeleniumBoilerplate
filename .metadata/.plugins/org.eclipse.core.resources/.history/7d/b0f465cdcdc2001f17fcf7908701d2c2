@@ -1,0 +1,9 @@
+package SeleniumSessions;
+
+public class OpenCartTestMain {
+	public static void main(String[] args) {
+		BrowserUtils brUtils= new BrowserUtils();
+		brUtils.launchBrowser("chrome");
+		brUtils.launchURL("https\://naveenautomationlabs.com/opencart/");
+	}
+}

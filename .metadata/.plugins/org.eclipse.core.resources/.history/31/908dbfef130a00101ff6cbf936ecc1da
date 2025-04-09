@@ -1,0 +1,23 @@
+package com.qa.videos;
+
+import java.util.Arrays;
+
+public class Main {
+public static void main(String[] args)
+{
+    String str = "test string";
+    printDuplicates(str);
+}
+
+public static void printDuplicates(String str) {
+	
+	int len=str.length();
+	
+	char charArr[]=str.toCharArray();
+	
+	Arrays.sort(charArr);
+	System.out.println(charArr));
+
+}
+
+}

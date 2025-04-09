@@ -1,0 +1,16 @@
+package collections;
+
+import java.util.HashMap;
+
+public class HashMapConcept {
+	public static void main(String[] args) {
+		
+		//works in K n V pair, Not in order 
+		HashMap<Integer, String> usrMap= new HashMap<Integer, String>();
+		usrMap.put(101, "Rodger");
+		usrMap.put(102, "Bhai");
+		// fetch
+		System.out.println(usrMap.get(usrMap));
+		
+	}
+}

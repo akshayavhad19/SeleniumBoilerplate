@@ -1,0 +1,14 @@
+
+public class calci {
+	public static void main(String[] args) {
+     int num1=25;
+     float num2=25.25f;
+     addition();
+	}
+
+	private static int addition() {
+		
+		return 0;
+		
+	}
+}

@@ -1,0 +1,7 @@
+package SeleniumSessions;
+
+public class MultipleSelectionDropdownHandling {
+ public static void main(String[] args) {
+	
+}
+}

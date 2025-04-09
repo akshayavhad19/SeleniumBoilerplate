@@ -1,0 +1,25 @@
+package basics;
+
+import java.util.ArrayList;
+
+public class ArrayListConcept {
+
+	public static void main(String[] args) {
+       ArrayList arrList = new ArrayList(2);
+       arrList.add(100);
+       arrList.add(200);
+       arrList.add(300);
+       arrList.add(400);
+       arrList.add(100);
+       arrList.add(200);
+       arrList.add(300);
+       arrList.add(400);
+       arrList.add(100);
+       arrList.add(200);
+       arrList.add(300);
+       arrList.add(400);
+       
+       System.out.println(arrList);
+	}
+
+}

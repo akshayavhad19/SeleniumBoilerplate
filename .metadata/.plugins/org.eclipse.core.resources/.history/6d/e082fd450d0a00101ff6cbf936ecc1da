@@ -1,0 +1,15 @@
+package com.qa.videos;
+
+public class RevString {
+	public static void main(String[] args) {
+		String name= "Akshay";
+		String rev="";
+		char ch;
+		
+		for (int i=0; i<name.length();i++) {
+			ch=name.charAt(i);
+			rev= rev+ ch;
+		}
+		System.out.println(rev);
+	}
+}

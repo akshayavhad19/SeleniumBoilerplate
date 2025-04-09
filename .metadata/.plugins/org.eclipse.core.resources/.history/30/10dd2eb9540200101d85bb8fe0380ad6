@@ -1,0 +1,24 @@
+package SeleniumSessions;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class MoveToElement {
+	static WebDriver driver;
+	public static void main(String[] args) throws InterruptedException {
+
+		driver=new ChromeDriver();
+		
+		String username="develop";
+		String password="bi!marketing";
+		String loginUrl = "https://"+username+":"+password+"@nginx-gpphiroba-jp-develop.bi3.bi-oneweb.com";
+		driver.get(loginUrl);
+		
+		By 	menu= By.cssSelector("span.label");
+		
+		Actions act= new Actions(driver);
+		act.moveToElement(driver.findElement(menu)).perform();
+	}
+}

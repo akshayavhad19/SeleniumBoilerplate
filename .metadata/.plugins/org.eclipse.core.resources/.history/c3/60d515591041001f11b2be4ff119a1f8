@@ -1,0 +1,11 @@
+
+public class calci {
+	public static void main(String[] args) {
+     int num1=25;
+     float num2=25.25f;
+     public int addition() {
+    	double sum= num1+num2;
+    	return sum;
+     }
+	}
+}

@@ -1,0 +1,23 @@
+package SeleniumSessions;
+
+public class OpenCartTestMain {
+	public static void main(String[] args) {
+		BrowserUtils brUtils= new BrowserUtils();
+		brUtils.launchBrowser("chrome");
+		brUtils.launchURL("https://naveenautomationlabs.com/opencart/");
+		String actPageTitle= brUtils.getPageTitle();
+		if (actPageTitle.equals("Your Store")) {
+			System.out.println("Title is correct - test PASS");
+		}
+		else {
+			System.out.println("Title is not correct - test FAIL");
+		}
+		String actPageURL=brUtils.getPageUrl();
+		if (actPageURL.equals("opencart")) {
+			System.out.println("Title is correct - test PASS");
+		}
+		else {
+			System.out.println("Title is not correct - test FAIL");
+		}
+	}
+}

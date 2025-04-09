@@ -1,0 +1,36 @@
+package selenium.java;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class ActionsClassPractice {
+	static WebDriver driver;
+	public static void main(String[] args) throws InterruptedException {
+
+		driver=new ChromeDriver();
+		driver.get("https://www.bigbasket.com/");
+		
+		driver.manage().window().maximize();
+		Thread.sleep(2000);
+		By shopByCat=By.xpath("(//span[text()='Category'])[2]");
+		driver.findElement(shopByCat).click();
+		
+		Actions act= new Actions(driver);
+		Thread.sleep(2000);
+
+		act
+			.moveToElement(driver.findElement(By.xpath("(//a[text()='Fruits & Vegetables'])[2]")))
+					.build()
+						.perform();
+		Thread.sleep(2000);
+		act
+			.moveToElement(driver.findElement(By.xpath("//a[text()='Fresh Fruits']")))
+				.build()
+					.perform();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//a[text()='Apples & Pomegranate']")).click();
+	}
+}
+

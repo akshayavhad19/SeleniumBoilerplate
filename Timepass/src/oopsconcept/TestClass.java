@@ -1,0 +1,17 @@
+package oopsconcept;
+
+public class TestClass {
+	public static void main(String[] args) {
+		//individual methods
+		College.cet();
+		//Implemented methods
+		College clg = new College();
+		clg.bachelors();
+		clg.gmat();
+		clg.islts();
+		clg.punjabi();
+		clg.neet();
+		clg.bro();
+		clg.compliance();
+	}
+}

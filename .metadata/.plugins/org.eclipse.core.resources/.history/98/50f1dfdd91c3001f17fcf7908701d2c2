@@ -1,0 +1,10 @@
+package SeleniumSessions;
+
+public class OpenCartLoginTest {
+	public static void main(String[] args) {
+		BrowserUtils brutils=new BrowserUtils();
+		brutils.launchBrowser("chrome");
+	}
+
+
+}

@@ -1,0 +1,10 @@
+package SeleniumSessions;
+
+public class CustomCSSSelector {
+	public static void main(String[] args) {
+		
+		//css- locator approach
+		//id - #id
+		//class - .class
+	}
+}

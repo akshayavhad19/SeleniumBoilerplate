@@ -1,0 +1,9 @@
+package com.qa.videos;
+public class Main {
+public static void main(String[] args)
+{
+    String str = "test string";
+    printDuplicates(str);
+}
+
+}

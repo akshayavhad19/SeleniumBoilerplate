@@ -1,0 +1,48 @@
+package basics;
+
+
+public class LaunchBrowser {
+	public boolean launchBrowser(String bName) {
+		boolean flag= true;
+		switch (bName.toLowerCase().trim()) {
+		case "chrome": {
+			System.out.println("Chrome Launched");
+			break;
+		}
+		case "firefox": {
+			System.out.println("firefox Launched");
+			break;
+		}
+		case "edge": {
+			System.out.println("edge Launched");
+			break;
+		}
+		default:
+			flag=false;
+			System.out.println("Not a browser");
+			break;
+		}
+		return flag;
+	}
+	
+	public void test() {
+		System.out.println("hehe");
+	}
+	public void test(int a, int b) {
+		System.out.println("hehe");
+	}
+	public void test(int c, String d) {
+		System.out.println("hehe");
+	}
+	
+	public static void main(String[] args) {
+      LaunchBrowser obj= new LaunchBrowser();
+      boolean flag= obj.launchBrowser("CHromy ");
+      if(flag) {
+    	  System.out.println("Broswer Launched");
+      }
+      else {
+    	  System.out.println("Launching failed");
+      }
+	}
+}

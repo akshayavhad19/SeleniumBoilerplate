@@ -1,0 +1,40 @@
+package oopsconcept;
+
+public class College extends Committee implements USA, UK {
+
+	//individual Method
+	public void neet() {
+		System.out.println("Neet Passed");
+	}
+	
+	//individual method
+	public static void cet() {
+		System.out.println("CET Passed");
+	}
+	@Override
+	public void punjabi() {
+		System.out.println("Im Punjabi");
+	}
+
+	@Override
+	public void bachelors() {
+		System.out.println("Have bachelors degree");	
+	}
+
+	@Override
+	public void islts() {
+		System.out.println("Islts paased");	
+	}
+
+	@Override
+	public void gmat() {
+		System.out.println("gmat failed");	
+	}
+	@Override
+	public void compliance() {
+		System.out.println("Compliance follow");
+	}
+
+	
+	
+}

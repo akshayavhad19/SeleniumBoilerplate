@@ -1,0 +1,20 @@
+package SeleniumSessions;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SelectDropdownHandling {
+	public static void main(String[] args) {
+		
+		// drowpdown --> htmltag: <select> --> <option> (child tag)
+		// use Select class
+		WebDriver driver=new ChromeDriver();
+		
+		driver.get("https://www.orangehrm.com/en/30-day-free-trial");
+		
+		By country= By.id("Form_getForm_Country");
+		
+		
+	}
+}

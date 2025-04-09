@@ -1,0 +1,19 @@
+package SeleniumSessions;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class OpenCartLoginTest {
+	public static void main(String[] args) {
+		BrowserUtils brutils=new BrowserUtils();
+		WebDriver driver=brutils.launchBrowser("chrome");
+		brutils.launchURL("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
+		
+		ElementUtil eliUtil=new ElementUtil(driver);	
+		By eid= By.id("input-email");
+		By pwd= By.id("input-password");
+		
+	}
+
+
+}

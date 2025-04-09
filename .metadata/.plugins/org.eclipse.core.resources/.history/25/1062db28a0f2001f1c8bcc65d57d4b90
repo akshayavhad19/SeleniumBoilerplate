@@ -1,0 +1,21 @@
+package selenium.java;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class AddToCart {
+	public static void main(String[] args) {
+		WebDriver driver= new ChromeDriver();
+		 driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
+		 
+		 String [] products= {"Cauliflower","Potato"};
+		 List <WebElement> totalProducts= driver.findElements(By.xpath("//div[@class='product-action']/button"));
+		 System.out.println(totalProducts.size());
+		 
+		//*[@id="root"]/div/div[1]/div/div[i]/div[3]/button
+	}
+}

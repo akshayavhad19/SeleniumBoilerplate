@@ -1,0 +1,81 @@
+package basics;
+import java.util.*;
+public class ArraysConcept {
+	public static void main(String[] args) {
+		String arr []=new String[4];
+		arr[0]="Mangesh";
+		arr[1]="Raju";
+		arr[2]="Belfort";
+		arr[3]="Radoger";
+
+		System.out.println(Arrays.toString(arr));
+
+		for (byte i=0; i<=arr.length;i++) {
+			System.out.println(arr[i]);
+			if (arr[i].equals("Raju")) {
+				System.out.println("Give him award");
+				break;
+			}
+		}
+		System.out.println("-----------------");
+		for (String e : arr) {
+			System.out.println(e);
+			if (e.equalsIgnoreCase("belfort")) {
+				System.out.println("Give him a latto");
+			}
+		}
+
+		int arr1[]=new int[4];
+		arr1[0]=100;
+		arr1[1]=200;
+		arr1[2]=300;
+		arr1[3]=400;
+
+
+
+		//Reversing using for each
+
+		int count =arr1.length-1;
+		for (int e: arr1) {
+			e=count;
+			System.out.println(arr1[e]);
+			count--;
+
+		}
+
+		System.out.println("-----------------");
+		Object empInfo[] =new Object [5];
+		empInfo[0]="Kiran";
+		empInfo[1]=30;
+		empInfo[2]='M';
+		empInfo[3]="01-01-1990";
+		empInfo[4]=31345.87677;
+
+		System.out.println("Employee Info "+Arrays.toString(empInfo));
+		System.out.println(empInfo.length);
+
+
+		int twoD [][]=new int [2][2];
+		twoD[0][0]=100;
+		twoD[0][1]=200;
+		twoD[1][0]=300;
+		twoD[1][1]=400;
+		System.out.println(Arrays.deepToString(twoD));	
+		
+		for (int[] a: twoD) {
+			for (int b: a) {
+				System.out.println(b);
+			}
+			//System.out.println();
+			
+		}
+		
+		ArrayList<String> list= new ArrayList<String>() {{
+			
+		}};
+		}
+	}
+
+
+
+

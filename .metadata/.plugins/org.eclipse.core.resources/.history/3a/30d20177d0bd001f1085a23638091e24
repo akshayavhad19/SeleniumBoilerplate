@@ -1,0 +1,36 @@
+package SeleniumSessions;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
+
+public class BrowserUtils {
+	WebDriver driver;
+	
+	public void launchBrowser ( String browserName) {
+		System.out.println("Browser Name: "+browserName);
+		switch (browserName.toLowerCase().trim()){
+		case "chrome": {
+			driver = new ChromeDriver();
+			break;
+		}
+		case "edge": {
+			driver = new EdgeDriver();
+			break;
+		}
+		case "firefox": {
+			driver = new FirefoxDriver();
+			break;
+		}
+		case "safari": {
+			driver = new SafariDriver();
+			break;
+		}
+		default:
+			System.out.println("Please pass the right browser");
+			throw new AutomationException("Invalid Browser");
+		}
+	}
+}

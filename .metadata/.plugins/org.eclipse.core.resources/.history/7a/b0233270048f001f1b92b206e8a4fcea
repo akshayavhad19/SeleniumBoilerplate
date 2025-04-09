@@ -1,0 +1,30 @@
+package basics;
+
+import java.util.ArrayList;
+
+public class ArrayListConcept {
+
+	public static void main(String[] args) {
+		ArrayList arrList = new ArrayList(1);
+		arrList.add(100);
+		arrList.add(200);
+		arrList.add(300);
+		arrList.add(400);
+		arrList.add(100);
+
+		System.out.println(arrList);
+		System.out.println(arrList.get(4));
+		
+		System.out.println("------------------------");
+		//ArrayList<Integer> arrList1= new ArrayList<>(); Working fine
+		ArrayList<Integer> arrList1= new ArrayList<Integer>();
+		arrList1.add(100);
+		arrList1.add(200);
+		arrList1.add(300);
+		arrList1.add(400);
+		arrList1.add(100);
+		System.out.println(arrList1);
+	}
+	
+
+}

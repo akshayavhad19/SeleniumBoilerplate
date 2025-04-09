@@ -1,0 +1,15 @@
+package SeleniumSessions;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class StaticTableConcept {
+	static WebDriver driver;
+	public static void main(String[] args) throws InterruptedException {
+		driver= new ChromeDriver();
+		driver.get("https://www.w3schools.com/html/html_tables.asp");
+
+		Thread.sleep(6000);
+		driver.manage().window().maximize();
+	}
+}
